@@ -1,0 +1,81 @@
+//
+// Buttons
+// 
+
+.btn {
+    &-white {
+        border: 1px solid $border-color;
+        background-color: $white;
+
+        &:hover {
+            background: $light;
+        }
+    }
+
+    &.focus,
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+// Rounded pill button
+.btn-pill {
+    border-radius: 6.25rem;
+}
+
+
+/* btn icon */
+.btn-icon {
+    width: calc(2.1rem + 2px);
+    padding: 0;
+    line-height: 2.1rem;
+
+    img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    &.btn-xs {
+        width: calc(1.15rem + 2px);
+        line-height: 1.15rem;
+    }
+
+    &.btn-sm {
+        width: calc(1.5rem + 2px);
+        line-height: 1.5rem;
+    }
+
+    &.btn-lg {
+        width: calc(3rem + 2px);
+        line-height: 3rem;
+    }
+}
+
+// Button soft color varient
+@each $color, $value in $theme-colors {
+    .btn-soft-#{$color} {
+        background-color: mix($value, $white, 10%);
+        color: $color;
+
+        &:hover {
+            background-color: $value;
+            color: color-yiq($value);
+        }
+    }
+}
+
+// Button outline soft color varient
+@each $color, $value in $theme-colors {
+    .btn-outline-soft-#{$color} {
+        background-color: mix($value, $white, 10%);
+        color: $value;
+        border-color: $value;
+
+        &:hover {
+            color: $value;
+            background-color: darken(mix($value, $white, 10%), 4%);
+        }
+    }
+}
+
+

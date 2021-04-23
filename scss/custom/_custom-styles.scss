@@ -1,0 +1,30 @@
+/**
+ * Define you custom style here.
+ * It will be merged with the theme style.
+ */
+.integration-image {}
+.blog-cover:before {
+  background: transparent;
+}
+:root {
+  --swiper-theme-color: #d81f26;
+}
+
+.navbar-light .navbar-nav .nav-link{
+  color: #01245e;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.footer-mini .nav.nav-light .nav-link.active {
+  color: #fff;
+}
+
+.footer-mini .nav-link {
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  color: #fff !important;
+}
+
+
+

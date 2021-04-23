@@ -1,0 +1,216 @@
+//
+// NAVBAR
+//
+
+.navbar {
+    z-index: 100;
+}
+
+.navbar-nav {
+    .nav-link {
+        font-weight: $font-weight-medium;
+        padding: 1.4rem 1rem;
+    }
+    .dropdown-header {
+        padding: 0 0 .8rem 0;
+        font-size: .75rem;
+        font-weight: $font-weight-semibold;
+        line-height: 1.55;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        color: $primary;
+        white-space: nowrap;
+    }
+    .dropdown-menu {
+        box-shadow: $box-shadow-smooth-3;
+    }
+    .dropdown-megamenu {
+        @include media-breakpoint-up(lg) {
+            min-width: 36.25rem;
+        }
+    }
+    .dropdown-megamenu-sm {
+        @include media-breakpoint-up(lg) {
+            min-width: 26.25rem;
+        }
+    }
+    .dropdown-menu,
+    .dropdown-megamenu {
+        @include media-breakpoint-up(lg) {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &.show,
+        &.show {
+            @include media-breakpoint-up(lg) {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+
+        &.close,
+        &.close {
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+
+        }
+    }
+    .dropdown-megamenu,
+    .dropdown-megamenu-sm {
+        .megamenu-link {
+            color: $dropdown-link-color;
+            font-size: 0.9375rem;
+            display: block;
+            border-radius: $border-radius-sm;
+            font-weight: $font-weight-medium;
+
+            @include hover-focus() {
+                color: $dropdown-link-hover-color;
+                text-decoration: none;
+                @include gradient-bg($dropdown-link-hover-bg);
+            }
+
+            &.active,
+            &:active {
+                color: $dropdown-link-active-color;
+                text-decoration: none;
+                @include gradient-bg($dropdown-link-active-bg);
+            }
+
+            &.disabled,
+            &:disabled {
+                color: $dropdown-link-disabled-color;
+                pointer-events: none;
+                background-color: transparent;
+
+                // Remove CSS gradients if they're enabled
+                @if $enable-gradients {
+                    background-image: none;
+                }
+            }
+        }
+
+        .megamenu-item {
+            position: relative;
+        }
+    }
+}
+
+.navbar-expand-lg >.container {
+  @include media-breakpoint-down(lg) {
+    max-width: none;
+  }
+}
+
+.navbar-light .navbar-toggler {
+  @include media-breakpoint-down(lg) {
+    border: none;
+    margin-right: 4px;
+  }
+}
+
+.nav-middle {
+  @include media-breakpoint-down(lg) {
+    width: 0;
+    flex: 0 0 auto;
+    padding: 0;
+  }
+}
+
+.navbar-app {
+  height: 70px;
+  @include media-breakpoint-down(lg) {
+    height: 64px
+  }
+}
+body {
+  padding-top: 70px;
+  @include media-breakpoint-down(lg) {
+    padding-top: 64px
+  }
+}
+
+.navbar-closer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5rem;
+    height: 2.25rem;
+    width: 2.25rem;
+    border-radius: 6.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    font-weight: $font-weight-semibold;
+    color: $dark;
+}
+
+.navbar-collapse {
+    @include media-breakpoint-down(lg) {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        bottom: 0;
+        height: 100% !important;
+        max-height: 100vh;
+        width: 100%;
+        max-width: 18.75rem;
+        min-height: 100vh;
+        background-color: $white;
+        box-shadow: 0 1.5rem 5rem rgba(22, 38, 55, .8);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        z-index: 1055;
+        transform: translateX(-100%);
+        transition: all 0.2s ease;
+    }
+    &.show {
+        @include media-breakpoint-down(lg) {
+            left: 0;
+            transform: translateX(0);
+            transition: all 0.2s ease;
+        }
+    }
+    .nav-link {
+        @include media-breakpoint-down(lg) {
+            padding: 0.8rem 1rem;
+            position: relative;
+            border-bottom: 1px solid $gray-100;
+
+            &::after {
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+    .dropdown-menu {
+        @include media-breakpoint-down(lg) {
+            background-color: $gray-50;
+            border: 0;
+            margin: 0;
+        }
+    }
+    .dropdown.show {
+        @include media-breakpoint-down(lg) {
+            .nav-link {
+                &::after {
+                    transform: rotate(-180deg);
+                }
+            }
+        }
+    }
+}
+
+body.offcanvas-stop-scrolling{
+    @include media-breakpoint-down(sm){
+        height: 100%;
+        overflow: hidden;
+    }
+}

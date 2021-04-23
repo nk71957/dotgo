@@ -1,0 +1,20 @@
+//
+// BORDER UTILITIES
+// 
+
+// Border color varient
+@each $color,$value in $theme-colors {
+    .border-hover-#{$color} {
+        
+        &:hover{
+            border-color: $value !important;
+        }   
+    }
+}
+
+
+// Blockquote Border
+.border-blockquote{
+    border-left: 0.3125rem solid;
+}
+

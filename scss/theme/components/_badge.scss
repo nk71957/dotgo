@@ -1,0 +1,19 @@
+//
+// BADGE
+//
+
+// Soft badge colors varient
+@each $name, $color in $theme-colors {
+    .badge-soft-#{$name} {
+        background-color: mix($color, $white, 10%) !important;
+    }
+}
+
+// Light badge colors varient
+@each $name, $color in $theme-colors {
+    .badge-light-#{$name} {
+        background-color: mix($color, $white, 3%) !important;
+    }
+}
+
+

@@ -1,0 +1,88 @@
+// Fullscreen Modals
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  $postfix: if($infix !="", $infix + "-down", "");
+
+  @include media-breakpoint-down($breakpoint) {
+    .modal-fullscreen#{$postfix} {
+      width: 100vw;
+      max-width: none;
+      height: 100%;
+      margin: 0;
+
+      .modal-content {
+        height: 100%;
+        border: 0;
+        @include border-radius(0);
+      }
+
+      .modal-header {
+        @include border-radius(0);
+      }
+
+      .modal-body {
+        overflow-y: auto;
+      }
+
+      .modal-footer {
+        @include border-radius(0);
+      }
+    }
+  }
+}
+
+
+
+// Modal Backdrop Blur Effect
+body {
+  &.modal-open .main-content {
+    filter: blur(1.5px);
+  }
+
+  .modal.fade {
+    .modal-dialog {
+      transform: translate(0, 0) scale(0.92);
+    }
+  }
+
+  .modal.show {
+    .modal-dialog {
+      transform: translate(0, 0) scale(1);
+    }
+  }
+}
+
+
+// Modal Close Button
+.modal-close {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  height: 1.875rem;
+  width: 1.875rem;
+  border-radius: 100%;
+  font-size: 1rem;
+  color: $white;
+  background-color: $dark !important;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: none;
+
+  &:hover {
+      text-shadow: none;
+      color: $white;
+      font-size: 1rem;
+  }
+
+  &:focus {
+      outline: none;
+  }
+
+
+  span {
+      line-height: 1;
+
+  }
+}

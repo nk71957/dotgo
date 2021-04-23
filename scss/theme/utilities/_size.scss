@@ -1,0 +1,29 @@
+//
+// SIZE UTILITIES
+// 
+
+
+// Height & Width Class Generator
+@for $i from 10 to 101 {
+	.hw-#{$i} {
+		height: $i + px !important;
+		min-width: $i + px !important;
+		width: $i + px !important;
+	}
+}
+
+
+
+// Width Utilities
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+      @if($infix != ''){
+        @each $prop, $abbrev in (width: w) {
+          @each $size, $length in $sizes {
+            .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,29 @@
+//
+// TRANSFORM UTILITIES
+// 
+
+// Hover transform lift
+.hover-lift{
+    transition: all 0.2s ease-out;
+
+    &:hover{
+        box-shadow: 0 10px 15px -0.1875rem rgba(0,0,0,.1), 0 0.25rem 0.375rem -0.125rem rgba(0,0,0,.05);
+        transform: translateY(-.25rem);
+    }
+}
+
+// Hover scale
+.hover-scale{
+    transition: transform 0.2s ease-in;
+
+    &:hover{
+        box-shadow: 0 0.625rem 0.9375rem -0.1875rem rgba(0,0,0,.1), 0 0.25rem 0.375rem -0.125rem rgba(0,0,0,.05);
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in;
+    }
+}
+
+
+.rotate-180{
+    transform: rotate(180deg) !important;
+}

@@ -1,0 +1,39 @@
+/* 
+
+Theme Name: Favland - SaaS & Software HTML5 Template
+Author: uichamp
+E-mail: support@uichmap.com
+
+--
+
+Copyright 2020 uichamp.com
+
+*/
+
+
+
+// Fonts
+@import "theme/fonts";               /* Default font file */
+
+// Functions
+@import "bootstrap/functions";       /* Bootstrap prefined functions file */
+
+// Variables
+@import "custom/custom-variables";   /* Add your custom variables here */
+@import "theme/variables";           /* Variable added by Favland author */
+@import "bootstrap/variables";       /* Bootstrap prefined variables file */
+
+// Mixins
+@import "bootstrap/mixins";          /* Bootstrap prefined mixins file */
+
+// Bootstrap components
+@import "bootstrap/bootstrap";      /* Bootstrap core file */
+
+// theme components
+@import "theme/utilities";
+@import "theme/reboot";
+@import "theme/vendors"; 
+@import "theme/components";
+
+// Custom styles
+@import "custom/custom-styles";     /* File for your custom style */

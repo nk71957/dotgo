@@ -1,0 +1,79 @@
+//
+// FORM
+// 
+
+// Dropdown
+.dropdown-item {
+    font-size: $font-size-sm;
+}
+
+
+
+label,
+textarea {
+    font-size: $font-size-sm;
+}
+
+// Form group
+.form-group,
+.input-group {
+    position: relative;
+
+    label,
+    textarea {
+        font-size: $font-size-sm;
+    }
+
+    input,
+    select {
+        font-size: $font-size-sm;
+
+        &::placeholder {
+            font-size: $font-size-sm;
+        }
+    }
+
+    // Password Toggle
+
+    .password-toggle {
+        position: absolute;
+        right: 10px;
+        bottom: 14px;
+        display: block;
+    }
+
+}
+
+.input-group-text {
+    padding: 0.7rem 1.5rem;
+}
+
+
+
+
+
+// Toggle Eye Icon
+#eyeIcon {
+    &.password-visible {
+        .eye-open {
+            display: block;
+        }
+
+        .eye-close {
+            display: none;
+        }
+    }
+
+    .eye-open {
+        display: none;
+    }
+}
+
+
+.form-group label {
+    color: $gray-900;
+}
+
+.custom-control-label {
+    user-select: none;
+}

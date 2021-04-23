@@ -1,0 +1,86 @@
+//
+// BACKGROUND COLORS UTILITIES
+// 
+
+
+// Soft backgrounds colors varient
+@each $name, $color in $theme-colors {
+    .bg-soft-#{$name} {
+        background-color: mix($color, $white, 10%) !important;
+    }
+}
+
+// Light backgrounds colors varient
+@each $name, $color in $theme-colors {
+    .bg-light-#{$name} {
+        background-color: mix($color, $white, 3%) !important;
+    }
+}
+
+// Gray backgrounds colors varient
+@each $color, $value in $grays {
+    @include bg-variant(".bg-gray-#{$color}", $value, true);
+}
+
+// Hover backgrounds colors varient
+@each $name, $color in $theme-colors {
+    .bg-hover-#{$name} {
+        &:hover{
+            background-color: $color !important;
+        } 
+    }
+}
+
+.bg-hover-white{
+    &:hover{
+        background-color: $white !important;
+    }
+}
+
+// Hover backgrounds soft colors varient
+@each $name, $color in $theme-colors {
+    .bg-hover-soft-#{$name} {
+        &:hover{
+            background-color: mix($color, $white, 10%) !important;
+        } 
+    }
+}
+
+// Accent color varient
+@each $color,$value in $theme-colors {
+    .accent-#{$color} {
+        &::before{
+            background-color: $value;
+        }   
+    }
+}
+
+// Soft backgrounds colors varient for SVG
+@each $name, $color in $theme-colors {
+    .fill-#{$name} {
+        fill: $color !important;
+    }
+}
+
+
+
+.bg-facebook {
+    background: #1772eb
+}
+
+.bg-soft-facebook {
+    background: #f3f8ff
+}
+
+.bg-linkedin {
+    background: #0077b4
+}
+
+
+.bg-twitter {
+    background: #1c9ceb
+}
+
+.bg-github {
+    background: #303030
+}

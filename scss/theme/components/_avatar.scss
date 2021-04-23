@@ -1,0 +1,88 @@
+//
+// AVATAR
+//
+
+.avatar {
+	position: relative;
+	display: inline-block;
+	width: 4rem;
+	height: 4rem;
+	font-size: 1.33333rem;
+}
+
+.avatar-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.avatar-title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background-color: $gray-600;
+	color: $white;
+	cursor: context-menu;
+}
+
+
+// Avatar sizing
+.avatar-xs {
+	min-width: 2.5rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	font-size: .83333rem;
+}
+
+.avatar-sm {
+	min-width: 3rem;
+	width: 3rem;
+	height: 3rem;
+	font-size: 1rem;
+}
+
+.avatar-lg {
+	min-width: 5rem;
+	width: 5rem;
+	height: 5rem;
+	font-size: 1.66667rem;
+}
+
+.avatar-xl {
+	min-width: 6rem;
+	width: 6rem;
+	height: 6rem;
+	font-size: 2rem;
+}
+
+.avatar-xxl {
+	min-width: 6rem;
+	width: 6rem;
+	height: 6rem;
+	font-size: 2rem;
+
+	@include media-breakpoint-up(md) {
+		min-width: 10rem;
+		width: 10rem;
+		height: 10rem;
+		font-size: 3rem;
+	}
+}
+
+// Avatar utilities 
+@each $color, $value in $theme-colors{
+    .avatar-#{$color} {
+        background-color: $value;
+    }
+}
+
+// Quick color fix
+.avatar-warning {
+	color: $gray-900;
+}
+
+
+
+

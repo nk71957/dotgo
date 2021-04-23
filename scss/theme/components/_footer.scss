@@ -1,0 +1,48 @@
+//
+// FOOTER
+// 
+
+
+footer{
+    padding: 4rem 0;
+
+    h5{
+        margin-bottom: 2rem;
+        font-weight: $font-weight-semibold;
+        letter-spacing: 0;
+    }
+
+    .nav-link{
+        color: $gray-900;
+
+        &:not(.active):hover{
+            color: $primary;
+        }
+
+        &.active{
+            color: $primary;
+        }
+    }
+
+    &.footer-dark{
+        background-color: $dark;
+        color: rgba($color: $white, $alpha: 0.7);
+
+        h5{
+            color: $white;
+        }
+
+        .nav-link{
+            color: rgba($color: $white, $alpha: 0.7);
+
+            &:not(.active):hover{
+                color: $white;
+            }
+
+            &.active{
+                color: $primary;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,15 @@
+//
+// BREADCRUMB
+//
+
+.breadcrumb {
+    display: inline-flex;
+    font-weight: $font-weight-medium;
+}
+
+
+.breadcrumb-scroll {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+}

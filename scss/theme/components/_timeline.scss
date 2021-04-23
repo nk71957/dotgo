@@ -1,0 +1,308 @@
+//
+// TIMELINE
+// 
+
+
+.timeline {
+    .timeline-main {
+        position: relative;
+
+        .days .timeline-field {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            align-items: center;
+            margin-bottom: 2.1875rem;
+
+            &.active {
+                .timeline-content .timeline-content-inner {
+                    background: $primary !important;
+                    color: $light !important;
+
+                    p {
+                        color: $light !important;
+                    }
+                }
+
+                .timeline-circle:before {
+                    animation: btnIconRipple 1.5s cubic-bezier(0.23, 1, 0.9, 1) both infinite;
+                    width: 200%;
+                    height: 200%;
+                    background: $primary;
+                    border-radius: 100%;
+                    content: "";
+                    position: absolute;
+                }
+            }
+
+            &.position-right {
+                flex-direction: row-reverse;
+
+                .timeline-content {
+                    order: 2;
+                    padding-right: 3.75rem;
+                    transform: translatex(-3.125rem);
+                }
+
+                .timeline-date {
+                    text-align: left;
+                    padding-left: 1.875rem;
+                }
+            }
+
+            &.position-left {
+                .timeline-content {
+                    order: 2;
+                    padding-left: 3.75rem;
+                    transform: translatex(3.125rem);
+
+                    &:after {
+                        left: 0;
+                    }
+                }
+
+                .timeline-date {
+                    text-align: right;
+                    padding-right: 1.875rem;
+                }
+            }
+
+            .timeline-circle {
+                width: 1.25rem;
+                height: 1.25rem;
+                border-radius: 100%;
+                background: $primary;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1;
+                order: 1;
+                flex-shrink: 0;
+                flex-grow: 0;
+            }
+
+            .timeline-content {
+                flex-grow: 1;
+                flex-basis: 50%;
+                max-width: 100%;
+                position: relative;
+                transition: 0.5s all;
+                opacity: 0;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    border-bottom: 0.0625rem dashed $primary;
+                    width: 3.75rem;
+                    right: 0;
+                    top: 50%;
+                }
+
+                .timeline-content-inner {
+                    padding: 2.1875rem 2.8125rem;
+                    background: $white;
+                    border: 1px solid $border-color;
+                    border-radius: 0.625rem;
+                    position: relative;
+                    z-index: 2;
+                }
+
+                .timeline-date-inner {
+                    display: none;
+                    margin-bottom: 0.9375rem;
+                }
+            }
+
+            .timeline-date {
+                flex-grow: 1;
+                flex-basis: 50%;
+                max-width: 100%;
+                position: relative;
+
+                .timeline-date-inner {
+                    display: inline-block;
+                }
+            }
+
+            .timeline-date-inner {
+                .timeline-month {
+                    color: $danger;
+                    margin-bottom: -0.3125rem;
+                    display: block;
+                }
+
+                .timeline-year {
+                    font-size: 2.25rem;
+                    font-weight: $font-weight-semibold;
+                    margin: 0;
+                }
+            }
+
+            .timeline-content {
+                opacity: 1;
+                transform: translatex(0) !important;
+                transition-delay: 0.5s;
+            }
+        }
+    }
+
+    .timeline-line {
+        width: 0.1875rem;
+        left: 50%;
+        bottom: 0;
+        right: auto;
+        position: absolute;
+        transform: translateX(-0.1875rem);
+        background: $primary;
+        margin-left: -0.125rem;
+
+        &:after {
+            width: 0;
+            height: 0;
+            border-left: 0.4375rem solid transparent;
+            border-right: 0.4375rem solid transparent;
+            border-top: 0.875rem solid $primary;
+            content: "";
+            bottom: -0.875rem;
+            position: absolute;
+            left: -0.35rem;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .timeline {
+        .timeline-line {
+            left: 0.625rem;
+        }
+
+        .timeline-main .days .timeline-field {
+            .timeline-date {
+                display: none;
+            }
+
+            &.position-right {
+                flex-direction: unset;
+
+                .timeline-content {
+                    order: unset;
+                    padding-left: 1.875rem;
+                    padding-right: 0;
+                    transform: translatex(0) !important;
+
+                    &:after {
+                        left: 0;
+                        width: 1.875rem;
+                    }
+                }
+            }
+
+            .timeline-circle {
+                order: 0;
+                flex-shrink: 0;
+                flex-grow: 0;
+                max-width: 100%;
+                position: relative;
+            }
+
+            .timeline-content .timeline-date-inner {
+                display: block;
+            }
+
+            &.position-left .timeline-content {
+                padding-left: 1.875rem;
+                transform: translatex(0) !important;
+
+                &:after {
+                    width: 1.875rem;
+                }
+            }
+        }
+    }
+}
+
+// Button icon ripple animation
+@keyframes btnIconRipple {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+// Timeline steps
+.timeline-steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .timeline-step {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: 1rem;
+
+        @include media-breakpoint-up(md) {
+            &:not(:last-child) {
+                &::after {
+                    content: "";
+                    display: block;
+                    border-top: 0.25rem dotted $primary;
+                    width: 3.46rem;
+                    position: absolute;
+                    left: 7.5rem;
+                    top: 0.3125rem;
+                }
+            }
+
+            &:not(:first-child) {
+                &::before {
+                    content: "";
+                    display: block;
+                    border-top: 0.25rem dotted $primary;
+                    width: 3.8125rem;
+                    position: absolute;
+                    right: 7.5rem;
+                    top: 0.3125rem;
+                }
+            }
+        }
+    }
+
+    .timeline-content {
+        width: 10rem;
+        text-align: center;
+
+        .inner-circle {
+            border-radius: 1.5rem;
+            height: 1rem;
+            width: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $primary;
+
+            &::before {
+                content: "";
+                background-color: $primary;
+                display: inline-block;
+                height: 3rem;
+                width: 3rem;
+                min-width: 3rem;
+                border-radius: 6.25rem;
+                opacity: 0.5;
+            }
+        }
+    }
+}
